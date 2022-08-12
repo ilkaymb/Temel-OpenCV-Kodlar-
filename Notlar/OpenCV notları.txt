@@ -1,0 +1,195 @@
+--------------------------------------------------------------------------------
+
+import cv2
+import numpy as np
+
+resim= cv2.imread("1.png")
+
+cv2.imshow("Resim adı",resim)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+--------------------------------------------------------------------------------
+
+kütüphaneleri importla
+resmi alıp ekrana veren kod
+resim= cv2.imread("1.png")->Okuma/Aynı dosyadaki png / resim değişkenine fotoğrafımızı atıyoruz
+cv2.imshow("Resim adı",resim)->Gösterme/ekran adı-resmin bulunduğu değişken
+cv2.waitKey(0)->Ekranı bekletme
+cv2.destroyAllWindows()->Ekranı silme
+
+--------------------------------------------------------------------------------
+
+resim= cv2.imread("1.png",0)->0 resmi siyah beyaz yapar / resmi değiştirmez
+
+cv2.imwrite("siyah_beyaz.png",resim)->resmi aynı klasöre kaydetme
+
+--------------------------------------------------------------------------------
+
+BGR Mantığı RGB
+her bir piksel bu üç ana renkle elde edilebilmektedir
+0-255
+bellek tüketimi olmuyor
+bir piksel 8 bitten oluşuyor
+
+print(resim)->resmimizin piksellerinin matriksteki karşılıklarını gösteriyor
+
+print(resim.size)->Resmin boyutunu verir piksel
+
+print(resim.dtype)->Resmin data tipini verir
+
+print(resim.shape)->genişlik ve yükseklik boyutu (x,y,3)/3 kullanılan RGB temsili
+
+resim= cv2.imread("1.png",0)
+siyah beyaz olan resmin shapeî istendiğinde 3 yazmaz çünkü BGR yoktur
+3 boyuttan birini indirmek işimize yarayabilir
+-----------------------------------------------------------------------------------
+
+
+
+print(Resim[(230,80)])->belli bir pikselin renk kodunu verir
+print("Resmin boyutu: "+str(Resim.size))
+print("Resmin Özellikleri: "+str(Resim.shape))
+print("Resmin veri tipi: "+str(Resim.dtype))
+
+------------------------------------------------------------------------------
+
+Resim[50,30]=[255,255,255]->pikselin renk ayarlarını değiştirme
+for i in range(100):
+    Resim[70,i]=[255,255,255]
+!!!çizgi çekmek için for kullanılıyor
+
+
+resim=cv2.imread("1.png")
+resim[:,:,0]=255->Mavi
+cv2.imshow("resim",resim)
+!!!BGR ayarlayırla oynayıp efekt yapma
+
+
+resim[:,:,1]=255->yeşil
+resim[:,:,2]=255->kırmızı
+
+
+resim[300:500,500:600,0]=255
+resim[y ekseninde,x ekseninde,BGR seçimi]=255
+
+
+
+kesit=resim[50:150,300:400]
+resim[0:100,0:100]=kesit
+!!!Resme başka bir resit yapıştırma
+boyutlara dikkat et
+
+
+Ağırlıklı toplama
+iki resmin renklerini BGR'ye göre toplama
+255'i geçerse başa döner
+
+
+
+
+toplam=cv2.add(resim1,resim2)->Resimleri üstüste koyma
+
+Resimlerin üstüste koyulabilmesi için
+resimler aynı boyutta olucak
+
+
+resimGri=cv2.cvtColor(resim,cv2.COLOR_BGR2GRAY)->Resmi grileştirme
+resim=cv2.imread("resim2.jpg",0)->aynı işe yarar
+
+3 rengi kullanmak dosyanın boyutunu arttıracaktır
+
+yukseklik,genislik,kanalsayisi=resim.shape->Resim bilgileri böyle çekilebilir
+
+
+ikiKat=cv2.pyrUp(resim)->Resmin boyutunu iki kat arttırır
+
+
+
+kamera=cv2.VideoCapture(0)->bilgisayarın kendi kamerası
+kamera=cv2.VideoCapture(1)->usb ile bağlı kamera
+kamera=cv2.VideoCapture(2)->olan video
+
+
+
+import cv2
+import numpy as np
+
+kamera=cv2.VideoCapture(0)
+while True:
+    ret,goruntu=kamera.read()
+    
+    cv2.imshow("kamera",goruntu)
+    
+    if cv2.waitKey(30) &0xFF==ord("q"):
+        break
+
+kamera.release()
+
+cv2.destroyAllWindows()
+
+!!!kameradan görüntü alma
+
+
+cv2.line(resim,(0,0),(100,100),(0,0,255),2)->çizgi çekme fonksiyonu
+cv2.circle(resim,(100,100),20,(0,0,255),2)->daire
+cv2.putText(resim,"Merhaba",(150,100),cv2.FONT_HERSHEY_COMPLEX,1,(255,0,0),1)->yazı koyma
+
+Mean filtering
+komşu piksellerin ortalamasını alarak ortadaki piksele yazılır
+doğrusal filtredir
+3x3,5x5'lik şablonlar kullanılabilir
+
+
+meanfilter=cv2.blur(image,(7,7))->(3,3)(5,5)#daha blurlu sayı arttıkça
+
+
+median filtresi
+pikselleri büyükten küçüğe sıralayarak ortafakini alıp ortaya yazar
+orjinalliğini daha çok koruyor
+
+
+gauss filter
+çan eğrisi şeklinde bir şablon kullanır matematiği karışık
+
+resimle uğraşırken filtreleme gerekebiliyor
+
+erosion sonrası dilation
+
+
+Resizin the image
+resized_image=cv2.resize(image,(650,500))
+
+resized_image = cv2.resize(image,(int(image.shape[1]/2),int(image.shape[0]/2)))
+
+
+Face detection
+  
+
+
+veri alın 
+bütün datasetinin boyutları aynı olmalı
+
+
+Cascading classifiers
+this process is most commonly used in image processing for object detection and tracking primarily facial detection and recognition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

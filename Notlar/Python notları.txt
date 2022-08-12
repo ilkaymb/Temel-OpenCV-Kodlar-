@@ -1,0 +1,609 @@
+if'den sonraki ifadenin başına boşluk getirmen şart. boşluksuz hata alırsın.
+# yorum satırı koymak için kullanılır
+"""
+birden fazla satırlı yorum satırı için kullanılan tarrzı
+"""
+
+x = 4       # x is of type int
+x = "Sally" # x is now of type str
+print(x)
+
+boşluklar önemli boşluk koyunca hata alıyorsun
+x = str(3)    # x will be '3' str=string
+y = int(3)    # y will be 3
+z = float(3)  # z will be 3.0
+
+x = 5
+y = "John"
+print(type(x))	#türünü verir
+print(type(y))
+
+
+
+x = "John"
+# is the same as
+x = 'John'
+
+
+a = 4
+A = "Sally"
+#A will not overwrite a
+büyük küçük harf farklı algışanıyor
+
+
+x,y,z="Orange","Pink","Brown"
+print(x,y,z)
+
+x=y=z="Red"
+print(x,y,z)
+
+*****************************************
+
+fruits = ["apple", "banana", "cherry"]
+x, y, z = fruits
+print(x)
+print(y)
+print(z)
+
+hepsine bir eleman gidiyor sırasıyla
+*****************************************
+x = "awesome"
+
+def myfunc():
+  x = "fantastic"
+  print("Python is " + x)
+
+myfunc()
+
+print("Python is " + x)
+
+#dışarda yazılan x global tanımlanır lakin aynı tanımlama fonksiyonun içinde kullanılırsa fonksiyonun içindeki tanım kullanılır
+
+
+x = "awesome"
+def myfunc():
+  global x
+  x = "fantastic"
+
+myfunc()
+
+print("Python is " + x)
+
+
+başına global ataması yapılarak globale aktarılabilir
+
+
+
+Text Type:	str
+Numeric Types:	int, float, complex
+Sequence Types:	list, tuple, range
+Mapping Type:	dict
+Set Types:	set, frozenset
+Boolean Type:	bool
+Binary Types:	bytes, bytearray, memoryview
+
+
+x = 1j	complex	
+x = ["apple", "banana", "cherry"]	list	
+x = ("apple", "banana", "cherry")	tuple	
+x = range(6)	range
+x = {"name" : "John", "age" : 36}	dict	
+x = {"apple", "banana", "cherry"}	set	
+x = frozenset({"apple", "banana", "cherry"})	frozenset	
+x = True	bool	
+x = b"Hello"	bytes	
+x = bytearray(5)	bytearray	
+x = memoryview(bytes(5))	memoryview
+
+
+
+Complex numbers are written with a "j" as the imaginary part:
+
+Example
+Complex:
+
+x = 3+5j
+y = 5j
+z = -5j
+
+print(type(x))
+print(type(y))
+print(type(z))
+
+x = 1    # int
+y = 2.8  # float
+z = 1j   # complex
+
+#convert from int to float:
+a = float(x)
+
+#convert from float to int:
+b = int(y)
+
+#convert from int to complex:
+c = complex(x)
+
+print(a)
+print(b)
+print(c) #1+0j sonucunu verir çünkü imaginary kısmı yoktur
+
+print(type(a))
+print(type(b))
+print(type(c))
+
+
+RANDOM SAYI OLUŞTURMA İÇİN
+import random
+
+print(random.randrange(1, 10))
+
+print("Hello")
+print('Hello')
+aynı şeyler
+
+
+
+
+a = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."""
+print(a)
+
+böyle bir kullanım da mevcut
+
+a = '''Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua.'''
+print(a)
+aynı şekilde bu da
+
+
+Strings are Arrays
+a = "Hello, World!"
+print(a[5])
+her harf dizinin bir karakteridir
+
+Looping Through a String
+Since strings are arrays, we can loop through the characters in a string, with a for loop.
+
+for x in "banana":
+  print(x)
+
+b
+a
+n
+a
+n
+a
+olarak çıktı veri
+
+
+Example
+The len() function returns the length of a string:
+
+a = "Hello, World!"
+print(len(a))
+
+
+Check String
+To check if a certain phrase or character is present in a string, we can use the keyword in.
+
+Example
+Check if "free" is present in the following text:
+
+txt = "The best things in life are free!"
+print("free" in txt)
+
+bir şeyin o stringte olup olmadığını sorguladığımız fonksiyondur
+free txt'de olduğu için bize true cevabını verir
+
+
+Use it in an if statement:
+
+Example
+Print only if "free" is present:
+
+txt = "The best things in life are free!"
+if "free" in txt:
+  print("Yes, 'free' is present.")
+
+
+Check if NOT
+To check if a certain phrase or character is NOT present in a string, we can use the keyword not in.
+
+Example
+Check if "expensive" is NOT present in the following text:
+
+txt = "The best things in life are free!"
+print("expensive" not in txt)
+in'in tersidir olmadığını vurgular
+
+
+
+Use it in an if statement:
+
+Example
+print only if "expensive" is NOT present:
+
+txt = "The best things in life are free!"
+if "expensive" not in txt:
+  print("No, 'expensive' is NOT present.")
+
+
+
+Slicing
+You can return a range of characters by using the slice syntax.
+
+Specify the start index and the end index, separated by a colon, to return a part of the string.
+
+Example
+Get the characters from position 2 to position 5 (not included):
+
+b = "Hello, World!"
+print(b[2:5])
+
+baslangıç_indexi:bitiş_indeksi(dahil değil)
+
+b = "Hello, World!"
+print(b[:5])
+başlangıç boş bırakılarak baştan başlatılabilir
+
+
+b = "Hello, World!"
+print(b[2:])
+bitiş boş bırakılarak sona kadar gidebilir
+
+Negative Indexing
+Use negative indexes to start the slice from the end of the string:
+Example
+Get the characters:
+
+From: "o" in "World!" (position -5)
+
+To, but not included: "d" in "World!" (position -2):
+
+b = "Hello, World!"
+print(b[-5:-2])
+indexleri tersten başlayarak yazmaya başlar
+
+Upper Case
+Example
+The upper() method returns the string in upper case:
+
+a = "Hello, World!"
+print(a.upper())
+
+
+
+
+LOWER CASE
+Example
+The lower() method returns the string in lower case:
+
+a = "Hello, World!"
+print(a.lower())
+
+
+
+Remove Whitespace
+Whitespace is the space before and/or after the actual text, and very often you want to remove this space.
+Example
+The strip() method removes any whitespace from the beginning or the end:
+a = " Hello, World! "
+print(a.strip()) # returns "Hello, World!"
+kelimenin başındaki ve sonundaki boşlukları kaldırır
+
+
+
+
+
+
+Replace String
+Example
+The replace() method replaces a string with another string:
+
+a = "Hello, World!"
+print(a.replace("H", "J"))
+harf değiştirme
+
+
+
+Split String
+The split() method returns a list where the text between the specified separator becomes the list items.
+
+Example
+The split() method splits the string into substrings if it finds instances of the separator:
+
+a = "Hello, World!"
+print(a.split(",")) # returns ['Hello', ' World!']
+
+seçilen karakteri görünce kelimeleri ayırmaya başlar seçilen kelime yazılmaz
+
+
+a = "Hello"
+b = "World"
+c = a + b
+print(c)
+
+age = 36
+txt = "My name is John, I am " + age
+print(txt)
+kullanım doğru değildir string bir ifadeyle int bir karakter birleşemez
+
+But we can combine strings and numbers by using the format() method!
+
+The format() method takes the passed arguments, formats them, and places them in the string where the placeholders {} are:
+
+Example
+Use the format() method to insert numbers into strings:
+
+age = 36
+txt = "My name is John, and I am {}"
+print(txt.format(age))
+{} yerine formatta koyduğumuz ifadeyi yazar
+
+
+age=36
+sa=15
+txt = "My name is John, and I am {} and {}"
+print(txt.format(age,sa))
+!!!çoklu kullanım örneği
+
+
+You can use index numbers {0} to be sure the arguments are placed in the correct placeholders:
+
+Example
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want to pay {2} dollars for {0} pieces of item {1}."
+print(myorder.format(quantity, itemno, price))
+
+
+\'	Single Quote	
+\\	Backslash	
+\n	New Line	
+\r	Carriage Return	
+\t	Tab	
+\b	Backspace	
+\f	Form Feed	
+\ooo	Octal value	
+\xhh	Hex value
+
+
+
+String Methods
+Python has a set of built-in methods that you can use on strings.
+
+Note: All string methods returns new values. They do not change the original string.
+
+Method	Description
+capitalize()	Converts the first character to upper case
+casefold()	Converts string into lower case
+center()	Returns a centered string
+count()	Returns the number of times a specified value occurs in a string
+encode()	Returns an encoded version of the string
+endswith()	Returns true if the string ends with the specified value
+expandtabs()	Sets the tab size of the string
+find()	Searches the string for a specified value and returns the position of where it was found
+format()	Formats specified values in a string
+format_map()	Formats specified values in a string
+index()	Searches the string for a specified value and returns the position of where it was found
+isalnum()	Returns True if all characters in the string are alphanumeric
+isalpha()	Returns True if all characters in the string are in the alphabet
+isdecimal()	Returns True if all characters in the string are decimals
+isdigit()	Returns True if all characters in the string are digits
+isidentifier()	Returns True if the string is an identifier
+islower()	Returns True if all characters in the string are lower case
+isnumeric()	Returns True if all characters in the string are numeric
+isprintable()	Returns True if all characters in the string are printable
+isspace()	Returns True if all characters in the string are whitespaces
+istitle()	Returns True if the string follows the rules of a title
+isupper()	Returns True if all characters in the string are upper case
+join()	Joins the elements of an iterable to the end of the string
+ljust()	Returns a left justified version of the string
+lower()	Converts a string into lower case
+lstrip()	Returns a left trim version of the string
+maketrans()	Returns a translation table to be used in translations
+partition()	Returns a tuple where the string is parted into three parts
+replace()	Returns a string where a specified value is replaced with a specified value
+rfind()	Searches the string for a specified value and returns the last position of where it was found
+rindex()	Searches the string for a specified value and returns the last position of where it was found
+rjust()	Returns a right justified version of the string
+rpartition()	Returns a tuple where the string is parted into three parts
+rsplit()	Splits the string at the specified separator, and returns a list
+rstrip()	Returns a right trim version of the string
+split()	Splits the string at the specified separator, and returns a list
+splitlines()	Splits the string at line breaks and returns a list
+startswith()	Returns true if the string starts with the specified value
+strip()	Returns a trimmed version of the string
+swapcase()	Swaps cases, lower case becomes upper case and vice versa
+title()	Converts the first character of each word to upper case
+translate()	Returns a translated string
+upper()	Converts a string into upper case
+zfill()	Fills the string with a specified number of 0 values at the beginning
+
+
+
+
+
+print(bool("Hello"))#True
+
+print(bool(15))#True
+
+print(bool(0))#False
+
+
+||-----> yerine (or)
+
+
+
+
+
+List
+
+Ordered
+When we say that lists are ordered, it means that the items have a defined order, and that order will not change.
+
+If you add new items to a list, the new items will be placed at the end of the list.
+
+Note: There are some list methods that will change the order, but in general: the order of the items will not change.
+
+Changeable
+The list is changeable, meaning that we can change, add, and remove items in a list after it has been created.
+
+Allow Duplicates
+Since lists are indexed, lists can have items with the same value:
+
+thislist = ["apple", "banana", "cherry"]
+print(len(thislist))
+listedeki eleman sayısını verir
+
+List Items - Data Types
+List items can be of any data type:
+
+Example
+String, int and boolean data types:
+
+list1 = ["apple", "banana", "cherry"]
+list2 = [1, 5, 7, 9, 3]
+list3 = [True, False, False]
+A list can contain different data types:
+
+Example
+A list with strings, integers and boolean values:
+
+list1 = ["abc", 34, True, 40, "male"]
+
+
+
+
+
+type()
+From Python's perspective, lists are defined as objects with the data type 'list':
+
+<class 'list'>
+Example
+What is the data type of a list?
+
+mylist = ["apple", "banana", "cherry"]
+print(type(mylist))
+
+python tarafından listeler list olarak görülür
+
+
+thislist = ["apple", "banana", "cherry"]
+print(thislist[-3])#apple
+print(thislist[0])#apple
+
+
+
+
+
+Range of Indexes
+You can specify a range of indexes by specifying where to start and where to end the range.
+
+When specifying a range, the return value will be a new list with the specified items.
+
+Example
+Return the third, fourth, and fifth item:
+
+thislist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+print(thislist[2:5])
+
+
+
+Check if Item Exists
+To determine if a specified item is present in a list use the in keyword:
+
+Example
+Check if "apple" is present in the list:
+
+thislist = ["apple", "banana", "cherry"]
+if "apple" in thislist:
+  print("Yes, 'apple' is in the fruits list")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
